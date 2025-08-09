@@ -18,12 +18,11 @@ const userSchema = new Schema({
         type: String,
         required: [true, "Password is required"],
         select: false,
-        minlength: 6
     },
     role: {
         type: String,
         enum: ["admin", "client", "freelancer"],
-        default: "freelancer"
+        required:true
     },
     profile: {
         // Common fields (freelancer & client)
@@ -78,7 +77,9 @@ const userSchema = new Schema({
         },
     }
 },
-    { timestamps: true }
+    { timestamps: true,
+      collection: 'users'
+    }
 )
 const User = mongoose.model("User", userSchema)
 module.exports = User
