@@ -6,7 +6,8 @@ app.use(cookieParser());
 
 // Top par add karo sabse pehle
 const authRouter = require("./routes/auth.route")
-const projectRouter = require("./routes/task.route")
+const projectRouter = require("./routes/task.route");
+const applicationRouter = require("./routes/application.route");
 app.use(express.json())
 app.use(cors({
   origin: "http://localhost:3000",
@@ -14,5 +15,5 @@ app.use(cors({
 }))
 app.use("/auth" , authRouter)
 app.use("/project" , projectRouter)
-
+app.use("application",applicationRouter)
 module.exports = app
