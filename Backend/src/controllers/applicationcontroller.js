@@ -62,7 +62,7 @@ exports.actionofapplications = async (req, res) => {
         if (!currenttask) {
             res.status(400).json({ message: "Task not found" })
         }
-        if (String(currenttask.client) !== String(req.user._idid)) {
+        if (String(currenttask.client) !== String(req.user._id)) {
             return res.status(400).json({ success: false, message: "Not authorize to respond to this application" })
         }
         if (action === "reject") {
